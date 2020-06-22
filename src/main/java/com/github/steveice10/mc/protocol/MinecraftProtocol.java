@@ -108,7 +108,6 @@ import com.github.steveice10.mc.protocol.packet.ingame.server.entity.spawn.Serve
 import com.github.steveice10.mc.protocol.packet.ingame.server.entity.spawn.ServerSpawnLivingEntityPacket;
 import com.github.steveice10.mc.protocol.packet.ingame.server.entity.spawn.ServerSpawnPaintingPacket;
 import com.github.steveice10.mc.protocol.packet.ingame.server.entity.spawn.ServerSpawnPlayerPacket;
-import com.github.steveice10.mc.protocol.packet.ingame.server.entity.spawn.ServerSpawnWeatherEntityPacket;
 import com.github.steveice10.mc.protocol.packet.ingame.server.scoreboard.ServerDisplayScoreboardPacket;
 import com.github.steveice10.mc.protocol.packet.ingame.server.scoreboard.ServerScoreboardObjectivePacket;
 import com.github.steveice10.mc.protocol.packet.ingame.server.scoreboard.ServerTeamPacket;
@@ -389,7 +388,7 @@ public class MinecraftProtocol extends PacketProtocol {
         this.registerIncoming(0x0C, ServerBossBarPacket.class);
         this.registerIncoming(0x0D, ServerDifficultyPacket.class);
         this.registerIncoming(0x0E, ServerChatPacket.class);
-        this.registerIncoming(0x1F, ServerMultiBlockChangePacket.class);
+        this.registerIncoming(0x0F, ServerMultiBlockChangePacket.class);
         this.registerIncoming(0x10, ServerTabCompletePacket.class);
         this.registerIncoming(0x11, ServerDeclareCommandsPacket.class);
         this.registerIncoming(0x12, ServerConfirmTransactionPacket.class);
@@ -421,7 +420,7 @@ public class MinecraftProtocol extends PacketProtocol {
         this.registerIncoming(0x2C, ServerVehicleMovePacket.class);
         this.registerIncoming(0x2D, ServerOpenBookPacket.class);
         this.registerIncoming(0x2E, ServerOpenWindowPacket.class);
-        this.registerIncoming(0x3F, ServerOpenTileEntityEditorPacket.class);
+        this.registerIncoming(0x2F, ServerOpenTileEntityEditorPacket.class);
         this.registerIncoming(0x30, ServerPreparedCraftingGridPacket.class);
         this.registerIncoming(0x31, ServerPlayerAbilitiesPacket.class);
         this.registerIncoming(0x32, ServerCombatPacket.class);
@@ -437,7 +436,7 @@ public class MinecraftProtocol extends PacketProtocol {
         this.registerIncoming(0x3C, ServerAdvancementTabPacket.class);
         this.registerIncoming(0x3D, ServerWorldBorderPacket.class);
         this.registerIncoming(0x3E, ServerSwitchCameraPacket.class);
-        this.registerIncoming(0x4F, ServerPlayerChangeHeldItemPacket.class);
+        this.registerIncoming(0x3F, ServerPlayerChangeHeldItemPacket.class);
         this.registerIncoming(0x40, ServerUpdateViewPositionPacket.class);
         this.registerIncoming(0x41, ServerUpdateViewDistancePacket.class);
         this.registerIncoming(0x42, ServerSpawnPositionPacket.class);
@@ -453,7 +452,7 @@ public class MinecraftProtocol extends PacketProtocol {
         this.registerIncoming(0x4C, ServerTeamPacket.class);
         this.registerIncoming(0x4D, ServerUpdateScorePacket.class);
         this.registerIncoming(0x4E, ServerUpdateTimePacket.class);
-        this.registerIncoming(0x5F, ServerTitlePacket.class);
+        this.registerIncoming(0x4F, ServerTitlePacket.class);
         this.registerIncoming(0x50, ServerEntitySoundEffectPacket.class);
         this.registerIncoming(0x51, ServerPlayBuiltinSoundPacket.class);
         this.registerIncoming(0x52, ServerStopSoundPacket.class);
@@ -482,7 +481,7 @@ public class MinecraftProtocol extends PacketProtocol {
         this.registerOutgoing(0x0C, ClientEditBookPacket.class);
         this.registerOutgoing(0x0D, ClientEntityNBTRequestPacket.class);
         this.registerOutgoing(0x0E, ClientPlayerInteractEntityPacket.class);
-        this.registerIncoming(0x0F, ClientGenerateStructuresPacket.class);
+        this.registerOutgoing(0x0F, ClientGenerateStructuresPacket.class);
         this.registerOutgoing(0x10, ClientKeepAlivePacket.class);
         this.registerOutgoing(0x11, ClientLockDifficultyPacket.class);
         this.registerOutgoing(0x12, ClientPlayerPositionPacket.class);
@@ -567,7 +566,7 @@ public class MinecraftProtocol extends PacketProtocol {
 
         this.registerOutgoing(0x00, ServerSpawnEntityPacket.class);
         this.registerOutgoing(0x01, ServerSpawnExpOrbPacket.class);
-        this.registerOutgoing(0x02, ServerSpawnWeatherEntityPacket.class);
+        this.registerOutgoing(0x02, ServerSpawnLivingEntityPacket.class);
         this.registerOutgoing(0x03, ServerSpawnPaintingPacket.class);
         this.registerOutgoing(0x04, ServerSpawnPlayerPacket.class);
         this.registerOutgoing(0x05, ServerEntityAnimationPacket.class);
@@ -596,7 +595,7 @@ public class MinecraftProtocol extends PacketProtocol {
         this.registerOutgoing(0x1C, ServerExplosionPacket.class);
         this.registerOutgoing(0x1D, ServerUnloadChunkPacket.class);
         this.registerOutgoing(0x1E, ServerNotifyClientPacket.class);
-        this.registerOutgoing(0x2F, ServerOpenHorseWindowPacket.class);
+        this.registerOutgoing(0x1F, ServerOpenHorseWindowPacket.class);
         this.registerOutgoing(0x20, ServerKeepAlivePacket.class);
         this.registerOutgoing(0x21, ServerChunkDataPacket.class);
         this.registerOutgoing(0x22, ServerPlayEffectPacket.class);
@@ -612,7 +611,7 @@ public class MinecraftProtocol extends PacketProtocol {
         this.registerOutgoing(0x2C, ServerVehicleMovePacket.class);
         this.registerOutgoing(0x2D, ServerOpenBookPacket.class);
         this.registerOutgoing(0x2E, ServerOpenWindowPacket.class);
-        this.registerOutgoing(0x3F, ServerOpenTileEntityEditorPacket.class);
+        this.registerOutgoing(0x2F, ServerOpenTileEntityEditorPacket.class);
         this.registerOutgoing(0x30, ServerPreparedCraftingGridPacket.class);
         this.registerOutgoing(0x31, ServerPlayerAbilitiesPacket.class);
         this.registerOutgoing(0x32, ServerCombatPacket.class);
@@ -628,7 +627,7 @@ public class MinecraftProtocol extends PacketProtocol {
         this.registerOutgoing(0x3C, ServerAdvancementTabPacket.class);
         this.registerOutgoing(0x3D, ServerWorldBorderPacket.class);
         this.registerOutgoing(0x3E, ServerSwitchCameraPacket.class);
-        this.registerOutgoing(0x4F, ServerPlayerChangeHeldItemPacket.class);
+        this.registerOutgoing(0x3F, ServerPlayerChangeHeldItemPacket.class);
         this.registerOutgoing(0x40, ServerUpdateViewPositionPacket.class);
         this.registerOutgoing(0x41, ServerUpdateViewDistancePacket.class);
         this.registerOutgoing(0x42, ServerSpawnPositionPacket.class);
